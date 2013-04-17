@@ -1,27 +1,24 @@
-require_relative './search'
 	class DepthSearch
 		
 
 		def initialize(parameter = {})
 			o = {
-				:graph => nil,
-				:type => SearchTyp::EDGE_LIST
+				:graph => nil
 			}.merge(parameter)
 
 			@graph = o[:graph]
-			@type = o[:type]
+		#	@type = o[:type]
 		end
 
 		def search(startVertices)
 			visited_nodes = []
-
 			self.rec_search(startVertices, visited_nodes)
 			visited_nodes
 		end
 
 		def rec_search(start_vertice, visited_nodes)
 			if !visited_nodes.include?(start_vertice)
-
+					#printf "%d node in ds",  visited_nodes.size
 				visited_nodes << start_vertice
 				edges = start_vertice.out_edges
 
